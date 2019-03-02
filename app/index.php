@@ -40,16 +40,18 @@
         <li><a href="index.php">HOME</a></li>
         <li><a href="game.php">GAME</a></li>
         <li><a href="portfolio.php">PORTFOLIO</a></li>
-        <li>
-          <?php if(isset($_SESSION['logged_user'])) : ?>
+        <?php if(isset($_SESSION['logged_user'])) : ?>
+          <li id="exit__a">
             <a href="logout.php" style="color:yellow" 
             onclick="return confirm('Do you want to leave accaunt ' + document.querySelector('#sessionName').innerHTML + '?',)">
             ВЫЙТИ</a>
+          </li>
             <p id="sessionName" style="display:none"><?php echo $_SESSION['logged_user']->login; ?></p>
           <?php else : ?>
+          <li>
             <a href="signup.php">REGISTRATION</a>
+          </li>
           <?php endif; ?>
-        </li>
       </ul>
     </nav>
   </div>
@@ -81,8 +83,8 @@
 
 <?php if(isset($_SESSION['logged_user'])) : ?>
   <div class="login">
-    <h3>Name: <?php echo $_SESSION['logged_user']->login; ?> </h3>
-    <p>Greetings <?php echo $_SESSION['logged_user']->login; ?>, how are you doing?</p>
+    <h3>Greetings <?php echo $_SESSION['logged_user']->login; ?>, how are you doing? </h3>
+    <p style="padding:1.2rem">Well, you are here! And now you have an incredible chance to learn how to be a  real monster. Get ready for the unusual, be unusual and reach speed of light. Good luck!</p>
   </div>
 <?php else : ?>
     <div class="login">

@@ -15,16 +15,18 @@
         <li><a href="index.php">HOME</a></li>
         <li><a href="game.php">GAME</a></li>
         <li><a href="portfolio.php">PORTFOLIO</a></li>
-        <li>
-          <?php if(isset($_SESSION['logged_user'])) : ?>
-          <a href="logout.php" style="color:yellow" 
-          onclick="return confirm('Do you want to leave accaunt ' + document.querySelector('#sessionName').innerHTML + '?',)">
-          ВЫЙТИ</a>
-          <p id="sessionName" style="display:none"><?php echo $_SESSION['logged_user']->login; ?></p>
-          <?php else : ?>
+        <?php if(isset($_SESSION['logged_user'])) : ?>
+          <li id="exit__a">
+            <a href="logout.php" style="color:yellow" 
+            onclick="return confirm('Do you want to leave accaunt ' + document.querySelector('#sessionName').innerHTML + '?',)">
+            ВЫЙТИ</a>
+          </li>
+            <p id="sessionName" style="display:none"><?php echo $_SESSION['logged_user']->login; ?></p>
+        <?php else : ?>
+          <li>
             <a href="signup.php">REGISTRATION</a>
-          <?php endif; ?>
-        </li>
+          </li>
+        <?php endif; ?>
       </ul>
     </nav>
   </div>
@@ -34,8 +36,8 @@
   <p></p>
   <div class="works">
     <div class="stuf">
-      <p><a href="">Что-то.</a></p>
-      <a class="timer" href=""><img src="" alt="" title="Перейти на страницу для просмотра"></a>
+      <p><a href="validation.php">Вёрстка, валидация формы.</a></p>
+      <a class="validation" href="validation.php"><img src="images/validation.jpg" alt="" title="Перейти на страницу для просмотра"></a>
     </div>
     <div class="stuf">
       <p><a href="dryfog.php">Дизайн и вёрстка.</a></p>
@@ -54,11 +56,16 @@
       <a class="timer" href="timer.php"><img src="images/timer.jpg" alt="" title="Перейти на страницу для просмотра"></a>
     </div>
     <div class="stuf">
-      <p><a href="validation.php">Вёрстка, валидация формы.</a></p>
-      <a class="validation" href="validation.php"><img src="images/validation.jpg" alt="" title="Перейти на страницу для просмотра"></a>
+      <p><a href="">Coming soon...</a></p>
+      <div id="comingSoon">
+      </div>
     </div>
   </div>
 </div>
 
+<script>
+  
+
+  </script>
 <?php
   require 'includes/foot.php';
