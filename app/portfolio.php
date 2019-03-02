@@ -38,16 +38,16 @@
       <a class="timer" href=""><img src="" alt="" title="Перейти на страницу для просмотра"></a>
     </div>
     <div class="stuf">
-      <p><a href="maket.php">Вёрстка по PSD шаблону.</a></p>
-      <a class="maket" href="maket.php"><img src="images/maket.jpg" alt="" title="Перейти на страницу для просмотра"></a>
-    </div>
-    <div class="stuf">
       <p><a href="dryfog.php">Дизайн и вёрстка.</a></p>
       <a class="landing" href="dryfog.php"><img  src="images/dryfog.jpg" alt="" title="Перейти на страницу для просмотра"></a>
     </div>
     <div class="stuf">
       <p><a href="paint.php">Пузырьковая рисовалка.</a></p>
       <a class="paint" href="paint.php"><img src="images/paint.jpg" alt="" title="Перейти на страницу для просмотра"></a>
+    </div>
+    <div class="stuf">
+      <p><a href="maket.php">Вёрстка по PSD шаблону.</a></p>
+      <a class="maket" href="maket.php"><img src="images/maket.jpg" alt="" title="Перейти на страницу для просмотра"></a>
     </div>
     <div class="stuf">
       <p><a href="timer.php">Таймер.</a></p>

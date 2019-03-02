@@ -116,7 +116,7 @@ body {
 }
 
 #main-header li:hover {
-  background: rgba(0, 0, 0, 0.8);
+  background: rgba(251, 255, 0, 0.822);
 }
 
 #main-header a {
@@ -362,6 +362,15 @@ body {
   margin-left: calc(2vw + 2rem);
 }
 
+@media screen and (max-width: 1200px) {
+  .works {
+    top: 7rem !important;
+    height: auto !important;
+    -ms-grid-columns: auto auto !important;
+        grid-template-columns: auto auto !important;
+  }
+}
+
 @media screen and (max-width: 798px) {
   html {
     font-size: 7px;
@@ -398,6 +407,9 @@ body {
     content: attr(data-close);
     position: absolute;
     z-index: 33;
+  }
+  .works {
+    top: 15rem !important;
   }
 }
 
@@ -440,6 +452,9 @@ body {
   }
   #first p {
     display: none;
+  }
+  .works {
+    top: 20rem !important;
   }
 }
 
@@ -533,7 +548,7 @@ body {
   position: absolute;
   background: #eee;
   height: 75vh;
-  top: 17.5vh;
+  top: 11rem;
   min-height: 360px;
   width: 80%;
   display: -ms-grid;
@@ -559,6 +574,8 @@ body {
   border-bottom: .2rem solid #FF2204;
   border-radius: 2rem;
   overflow: hidden;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 #container .works div p {
@@ -579,6 +596,7 @@ body {
 
 #container .works div p a {
   color: #FFCD00;
+  font-size: calc(1.2rem + 4px);
 }
 
 #container .works div img {
