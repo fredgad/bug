@@ -1,0 +1,1 @@
+$(function(){$("#main").mousemove(c=>{$("#main-text").css({width:c.clientX/2+"px"}),$("#up").css({width:"calc(1000px + "+c.clientX+"px)"})})});
