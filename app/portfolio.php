@@ -63,9 +63,5 @@
   </div>
 </div>
 
-<script>
-  
-
-  </script>
 <?php
   require 'includes/foot.php';

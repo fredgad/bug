@@ -310,9 +310,9 @@ body {
   position: absolute;
   bottom: var(--p-b);
   height: 225px;
-  width: 45vw;
   left: 27.5vw;
   min-width: 300px;
+  width: 45vw;
   background: rgba(0, 0, 0, 0.4);
   z-index: 99;
   border-top: .2rem solid #FFCD00;
@@ -323,13 +323,62 @@ body {
   font-size: 16px;
 }
 
+.login #tipingWrapper {
+  width: 45vw;
+  min-width: 300px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.login #tipingWrapper #tipingCont {
+  width: 38rem;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif, monospace;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto;
+      grid-template-columns: auto;
+}
+
+.login #tipingWrapper #tipingCont p {
+  position: relative;
+  white-space: nowrap;
+  width: 20em;
+  border-right: 2px solid transparent;
+  font-size: calc(1.4rem + 5px);
+  overflow: hidden;
+}
+
+.login #tipingWrapper #tipingCont .tipingText1 {
+  -webkit-animation: tiping 3s steps(40) 1s 1 normal both, blink 0.5s steps(40) infinite normal, blinkOff 100s 3.8s infinite;
+          animation: tiping 3s steps(40) 1s 1 normal both, blink 0.5s steps(40) infinite normal, blinkOff 100s 3.8s infinite;
+}
+
+.login #tipingWrapper #tipingCont .tipingText2 {
+  -webkit-animation: tiping 3s steps(40) 4s 1 normal both, blink 0.5s steps(40) 4s infinite normal, blinkOff 100s 7s infinite;
+          animation: tiping 3s steps(40) 4s 1 normal both, blink 0.5s steps(40) 4s infinite normal, blinkOff 100s 7s infinite;
+}
+
+.login #tipingWrapper #tipingCont .tipingText3 {
+  -webkit-animation: tiping 3s steps(40) 7s 1 normal both, blink 0.5s steps(40) 7s infinite normal, blinkOff 100s 9.8s infinite;
+          animation: tiping 3s steps(40) 7s 1 normal both, blink 0.5s steps(40) 7s infinite normal, blinkOff 100s 9.8s infinite;
+}
+
+.login #tipingWrapper #tipingCont .tipingText4 {
+  -webkit-animation: tiping 3s steps(40) 10s 1 normal both, blink 0.5s steps(40) 10s infinite normal;
+          animation: tiping 3s steps(40) 10s 1 normal both, blink 0.5s steps(40) 10s infinite normal;
+}
+
 .login h3 {
   position: relative;
   color: #FFCD00;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding: .5rem 3rem .5rem 3rem;
+  padding: .5rem 0rem .5rem 0rem;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
@@ -459,6 +508,60 @@ body {
   }
   .works {
     top: 20rem !important;
+  }
+}
+
+@-webkit-keyframes blink {
+  0% {
+    border-right-color: #fff;
+  }
+  100% {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes blink {
+  0% {
+    border-right-color: #fff;
+  }
+  100% {
+    border-right-color: transparent;
+  }
+}
+
+@-webkit-keyframes blinkOff {
+  0% {
+    border-right-color: transparent;
+  }
+  100% {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes blinkOff {
+  0% {
+    border-right-color: transparent;
+  }
+  100% {
+    border-right-color: transparent;
+  }
+}
+
+@-webkit-keyframes tiping {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 19em;
+  }
+}
+
+@keyframes tiping {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 19em;
   }
 }
 

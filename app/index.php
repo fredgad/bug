@@ -84,7 +84,14 @@
 <?php if(isset($_SESSION['logged_user'])) : ?>
   <div class="login">
     <h3>Greetings <?php echo $_SESSION['logged_user']->login; ?>, how are you doing? </h3>
-    <p style="padding:1.2rem">Well, you are here! And now you have an incredible chance to learn how to be a  real monster. Get ready for the unusual, be unusual and reach speed of light. Good luck!</p>
+    <div id="tipingWrapper">
+      <div id="tipingCont">
+        <p class="tipingText1">Well, you are here! And now you have an</p>
+        <p class="tipingText2">incredible chance to learn how to be a real</p>
+        <p class="tipingText3">monster. Get alvays ready for the unusual,</p>
+        <p class="tipingText4">be unusual and reach speed of light. GLHF! </p>   
+      </div>
+    </div>
   </div>
 <?php else : ?>
     <div class="login">

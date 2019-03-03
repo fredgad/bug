@@ -5,6 +5,7 @@ document.addEventListener("DOMContentLoaded", ()=> {
       document.querySelector("#up").style.width = "calc(1000px + " + e.clientX + "px)";
     }); 
   }
+  
 
   // if(document.querySelector("#comingSoon")) {
   //   let comingSoon = document.querySelector("#comingSoon");
