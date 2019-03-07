@@ -1,5 +1,6 @@
 html {
   box-sizing: border-box;
+  font-size: 14px;
 }
 body {
   overflow: hidden ;
@@ -34,7 +35,7 @@ body {
   position:absolute;
   height:30vh;
   width:100vw;
-  font-size:6rem;
+  font-size:4rem;
   font-weight:900;
   display:flex;
   justify-content:center;
@@ -187,6 +188,9 @@ body {
 
 
 @media screen and (max-width: 420px) {
+  html {
+    font-size: 7px;
+  }
   #score_time, #score_moon, #score_speed, #best_speed {
   font-size: 6vw;
   }

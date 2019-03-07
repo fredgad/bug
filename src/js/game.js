@@ -140,7 +140,8 @@ function getValue(e) {
   });
   
   function endGame() {
-    loose.style.top = cont.offsetHeight/80*15 + "px";
+    //cont.offsetHeight/80*15 + "px"
+    loose.style.top = "0px";
     loose.style.transition = "top 1s cubic-bezier(.45,-0.67,.53,1.63)";
   }
   

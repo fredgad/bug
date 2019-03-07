@@ -94,7 +94,7 @@ body {
 #main {
   position: relative;
   overflow: hidden;
-  min-height: 600px;
+  min-height: 500px;
   width: 100vw;
   display: grid;
   grid-template-columns: 100%;
@@ -321,6 +321,9 @@ body {
 
 
 @media screen and (max-width:1200px) {
+  html {
+    font-size:7px;
+  }
   .works {
     top: 7rem !important;
     height: auto !important;
@@ -367,7 +370,7 @@ body {
     z-index: 33;
   }
   .works {
-    top: 15rem !important;
+    top: 10rem !important;
   }
 }
 
@@ -401,6 +404,9 @@ body {
   }
   .signup {
     bottom: 2rem;
+  }
+  .works {
+    top: 15rem !important;
   }
 }
 
@@ -575,7 +581,7 @@ body {
   .signup {
     position: absolute;  
     height: 50vh;
-    min-height: 160px;
+    min-height: 280px;
     width: 45vw;
     min-width: 300px;
     background: rgba(0,0,0,.4);
