@@ -40,7 +40,7 @@
       <a class="validation" href="validation.php"><img src="images/validation.jpg" alt="" title="Перейти на страницу для просмотра"></a>
     </div>
     <div class="stuf">
-      <p><a href="dryfog.php">Дизайн и вёрстка.</a></p>
+      <p><a href="dryfog.php">Слайдер.</a></p>
       <a class="landing" href="dryfog.php"><img  src="images/dryfog.jpg" alt="" title="Перейти на страницу для просмотра"></a>
     </div>
     <div class="stuf">

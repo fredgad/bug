@@ -1,56 +1,97 @@
+html {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    font-size: 10px;
+}
 body {
+    background: #eee;
+    overflow: hidden;
 }
 #wrap {
     position:relative;
+    top: 0;
+    left: 0;
     display:flex;
-    height:400px;
-    width:700px;
-    border:1px solid;
+    justify-content: center;
+    align-items: center;
+    height: 40rem;
+    width:100vw;
+    min-width: 70rem;
     box-sizing:border-box;
     transform-style:preserve-3d;
-    perspective:10px;
+    perspective:400px;
+
 }
 #cont {
+    position: relative;
     display: flex;
-    height:400px;
-    width:700px;
+    height:40rem;
+    width:70rem;
+    overflow: hidden;
+    box-sizing: border-box;
+
+    .image0, .image1, .image2 { 
+        position:absolute;
+        transition:.9s;
+        height:40rem;
+        width:70rem;
+        box-sizing: border-box;
+        display: none;
+        animation-fill-mode: forwards;
+    }
+    .image0 {
+        background:url("../images/spacer_green.jpg");
+        background-size: 100% 100%;
+        box-sizing: border-box;
+       // transform: translateY(0);
+    }
+    .image1 {   
+        background: url("../images/space.jpg");
+        background-size: 100% 100%;
+       // transform: translateY(2rem);
+    }
+    .image2 {
+        background: url("../images/dryfog.jpg");
+        background-size: 100% 100%;
+       // transform: translateY(4rem);
+    }
+    //You can continue adding images here
+
+    .image0:hover {
+        transform:translateZ(20px);
+        transition: .2s;
+    }
+    .image1:hover {
+        transform:translateZ(20px);
+        transition: .2s;
+    }
+    .image2:hover {
+        transform:translateZ(20px);
+        transition: .2s;
+    }
 }
-.part {
-    position:relative;
-    background-size:100%;
-    background-position:100% 100%;
-    transition:.9s;
-    height:400px;
-    width:700px;
-    background:url("../images/spacer_green.jpg");
-}
-.part {
-}
-.part1 {
-  background: url("../images/space.jpg");
-}
-.part2 {
-  background: url("../images/fredgad1.jpg");
-}
-.part:hover {
-    transform:translateZ(2px);
-    transition: .2s;
-}
+
 
 @keyframes turn {
     0% {
         transform:rotate(0deg);
+        transform-origin: 0 0;
+    }
+    20% {
+        transform-origin: 100% 100%;
     }
     100% {
         transform:rotate(360deg);
+        transform-origin: 50% 50%;
     }
 }
 
 @keyframes tran {
-    0%, 100% {
-        transform:translateZ(0px);
+    0% {
+        transform:translateZ(-999px);
     }
-    50% {
-        transform:rotateY(189deg);
+    100% {
+        transform:translateZ(0);
     }
 }
