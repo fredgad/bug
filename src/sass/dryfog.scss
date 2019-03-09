@@ -44,17 +44,14 @@ body {
         background:url("../images/spacer_green.jpg");
         background-size: 100% 100%;
         box-sizing: border-box;
-       // transform: translateY(0);
     }
     .image1 {   
         background: url("../images/space.jpg");
         background-size: 100% 100%;
-       // transform: translateY(2rem);
     }
     .image2 {
         background: url("../images/dryfog.jpg");
         background-size: 100% 100%;
-       // transform: translateY(4rem);
     }
     //You can continue adding images here
 
@@ -72,6 +69,19 @@ body {
         transform:translateZ(4rem);
         transition: .2s;
         z-index: 9;
+    }
+}
+#box {
+    position: relative;
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+
+    #buttons {
+        position: relative;
+        display: grid;
+        grid-template-columns: auto auto auto;
+        width: 70rem;
     }
 }
 
@@ -96,5 +106,23 @@ body {
     }
     100% {
         transform:translateZ(0);
+    }
+}
+
+
+@media screen and (max-width: 780px) {
+    html {
+        font-size: 7px
+    }
+}
+
+@media screen and (max-width: 580px) {
+    html {
+        font-size: 5px
+    }
+}
+@media screen and (max-width: 380px) {
+    html {
+        font-size: 3px
     }
 }

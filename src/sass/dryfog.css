@@ -101,6 +101,26 @@ body {
   z-index: 9;
 }
 
+#box {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100vw;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+#box #buttons {
+  position: relative;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: auto auto auto;
+      grid-template-columns: auto auto auto;
+  width: 70rem;
+}
+
 @-webkit-keyframes turn {
   0% {
     -webkit-transform: rotate(0deg);
@@ -158,6 +178,24 @@ body {
   100% {
     -webkit-transform: translateZ(0);
             transform: translateZ(0);
+  }
+}
+
+@media screen and (max-width: 780px) {
+  html {
+    font-size: 7px;
+  }
+}
+
+@media screen and (max-width: 580px) {
+  html {
+    font-size: 5px;
+  }
+}
+
+@media screen and (max-width: 380px) {
+  html {
+    font-size: 3px;
   }
 }
 /*# sourceMappingURL=dryfog.css.map */

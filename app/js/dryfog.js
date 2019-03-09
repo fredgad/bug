@@ -4,13 +4,14 @@ onload = ()=> {
 let wrap = document.getElementById("wrap"),
     cont = document.getElementById("cont"),
     bttn = document.getElementById("bttn"),
-    turn = document.getElementById("turn"),
     tran = document.getElementById("tran"),   
-    numW = 22,
+    numW = 125,
     numH = 1,
     height = cont.offsetHeight,
     width = cont.offsetWidth,
-    X = 0;
+    X = 0,
+    rand = false,
+    cut = false;
 
 
     //Events
@@ -18,22 +19,32 @@ wrap.addEventListener("click", (e)=> {
     scrolling(e);
     filling();
     sizing(X);
-    if(e.clientX < wrap.offsetWidth / 2) {
-        animation("turn", "1");
+    if(rand) {
+        if(e.clientX < wrap.offsetWidth / 2) {
+            randomAnimation("turn", "1");
+        } else {
+            randomAnimation("tran", "1");
+        } 
     } else {
-        animation("tran", "1");
+        if(e.clientX < wrap.offsetWidth / 2) {
+            animation("turn", "1");
+        } else {
+            animation("tran", "1");
+        } 
     }
-    console.log(numW + ' : ' + numH);
 });
 
 bttn.addEventListener("click", ()=> {
-cut();
-});
-turn.addEventListener("click", ()=> {
-animation("turn", "50");
+    cut = cut ? false : true ;
+    cutt();
 });
 tran.addEventListener("click", ()=> {
-animation("tran", "50");
+    rand = rand ? false : true ;
+    if(rand) {
+        tran.style.color = "red";
+    } else {
+        tran.style.color = "black";
+    }
 });
 
 
@@ -48,22 +59,22 @@ document.getElementById("squaB").addEventListener("click", ()=> {
     numH = 17; numW = 17;
 });
 document.getElementById("vertL").addEventListener("click", ()=> {
-    numH = 22; numW = 1;
+    numH = 125; numW = 1;  
 });
 document.getElementById("vertN").addEventListener("click", ()=> {
     numH = 45; numW = 1;
 });
 document.getElementById("vertB").addEventListener("click", ()=> {
-    numH = 125; numW = 1;    
+    numH = 22; numW = 1;  
 });
 document.getElementById("goriL").addEventListener("click", ()=> {
-    numH = 1; numW = 22;
+    numH = 1; numW = 125;
 });
 document.getElementById("goriN").addEventListener("click", ()=> {
     numH = 1; numW = 45;
 });
 document.getElementById("goriB").addEventListener("click", ()=> {
-    numH = 1; numW = 125;
+    numH = 1; numW = 22;
 });
 
 
@@ -138,15 +149,50 @@ function animation(animType, animSpeed) {
  
         imageX[x].style.animation = `${animType} ${animSpeed}s linear`;
     }
+} 
+
+function randomAnimation(animType, animSpeed) {
+    let imageX = document.getElementsByClassName("image" + X),
+        aRRay = [],
+        z, box;
+    //Randomisation
+    for(let i = 0; i < imageX.length; i++) {
+        aRRay.push(i);
+    }
+    for(let i = aRRay.length - 1; i > 0; i--){
+		z = Math.floor(Math.random()*(i + 1));
+		box = aRRay[z];
+		aRRay[z] = aRRay[i];
+		aRRay[i] = box;
+    }
+    
+    for(let x = 0; x < imageX.length; x++) { 
+
+
+        setTimeout(()=> {
+            imageX[aRRay[x]].style.display = "block";
+        }, x*15);
+ 
+        imageX[aRRay[x]].style.animation = `${animType} ${animSpeed}s linear`;
+    }
 }
 
-function cut() {
+function cutt() {
     let imageX = document.getElementsByClassName("image" + X);
 
-    for(let x = 0; x < imageX.length; x++) {
-        imageX[x].style.borderTop = "1px solid #000";
-        imageX[x].style.borderLeft = "1px solid #fff";
+    if(cut) {
+        for(let x = 0; x < imageX.length; x++) {
+            imageX[x].style.borderTop = "1px solid #fff";
+            imageX[x].style.borderLeft = "1px solid #fff";
+        }
+        bttn.style.color = "yellow";
+    } else {
+        for(let x = 0; x < imageX.length; x++) {
+            imageX[x].style.borderTop = "0px solid #fff";
+            imageX[x].style.borderLeft = "0px solid #fff";
+        }
+        bttn.style.color = "black";
     }
-}   
+}
 
 }
