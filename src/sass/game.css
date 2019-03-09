@@ -2,6 +2,7 @@ html {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -70,8 +71,13 @@ body {
 
 #loose {
   top: 100vh;
-  height: 50vh;
-  padding-bottom: 30vh;
+  height: 80vh;
+}
+
+#loose strong {
+  position: absolute;
+  top: 3rem;
+  font-size: 4rem;
 }
 
 #loose p {
@@ -94,22 +100,22 @@ body {
 #score_time, #score_moon, #score_speed, #best_speed {
   position: absolute;
   width: 70vw;
-  top: 20vh;
+  top: calc(6rem + 50px);
   text-shadow: 10px 3px 5px black;
   border: none;
   font-size: 4vw;
 }
 
 #score_moon {
-  top: 26vh;
+  top: calc(10rem + 50px);
 }
 
 #score_speed {
-  top: 33vh;
+  top: calc(14rem + 50px);
 }
 
 #best_speed {
-  top: 40vh;
+  top: calc(18rem + 50px);
 }
 
 #handle {
@@ -139,7 +145,58 @@ body {
 }
 
 #handle #table .neek {
-  font-size: 16px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  left: 0;
+  font-size: 1.2rem;
+  display: flex;
+  width: 15vw;
+}
+
+#handle #table .neek .neekName {
+  color: red;
+  font-size: 17px;
+}
+
+#handle #table .own_record {
+  position: relative;
+  color: white;
+  bottom: 1.3rem;
+  font-size: .8rem;
+}
+
+#handle #table .common_record {
+  position: absolute;
+  color: yellow;
+  bottom: .3rem;
+  font-size: .8rem;
+}
+
+#handle #table .recorder {
+  position: absolute;
+  width: 30vw;
+  height: 9vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  left: 60vw;
+  font-size: .8rem;
+  color: yellow;
+  top: 2.2vh;
+}
+
+#handle #table .recorder #recName {
+  position: absolute;
+  font-size: 17px;
+  right: 3rem;
+  top: -1vh;
 }
 
 #handle div {
@@ -171,7 +228,7 @@ body {
 
 #handle .menu_button {
   right: .5vw;
-  top: .5vh;
+  bottom: .5vh;
   background: lightgreen;
   font-size: 3vw;
 }

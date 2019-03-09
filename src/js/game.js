@@ -7,7 +7,9 @@ onload = ()=> {
     loose = document.getElementById("loose"),
     handle = document.getElementById("handle"),   
     ladybug = document.getElementById("ladybug"),
-    controls = document.getElementsByClassName("controls"),   
+    controls = document.getElementsByClassName("controls"), 
+    id = document.querySelector('#hiddenId') ? 
+    parseInt(document.querySelector('#hiddenId').innerHTML) : undefined, 
     
     l = false, r = false, t = false, b = true,
     x = cont.offsetWidth/2,
@@ -27,7 +29,7 @@ onload = ()=> {
     loH = ladybug.offsetHeight,
     loW = ladybug.offsetWidth,
     timer = Date.now(),
-    moonFolder = ['<p class="pm" date="-5">🌑</p>', '<p class="pm" date="-3">🌘</p>', '<p class="pm" date="1">🌗</p>', '<p class="pm" date="3">🌖</p>', '<p class="pm" date="5">🌕</p>', '<p class="pm" date="3">🌔</p>', '<p class="pm" date="-1">🌓</p>', '<p class="pm" date="-3">🌒</p>']; 
+    moonFolder = ['<p class="pm" date="-15">🌑</p>', '<p class="pm" date="-5">🌘</p>', '<p class="pm" date="1">🌗</p>', '<p class="pm" date="3">🌖</p>', '<p class="pm" date="5">🌕</p>', '<p class="pm" date="3">🌔</p>', '<p class="pm" date="1">🌓</p>', '<p class="pm" date="-5">🌒</p>']; 
   
   //Ajax
   start.addEventListener("click", getValue);
@@ -35,49 +37,56 @@ onload = ()=> {
 function loadUsers() {    
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'includes/ajax.php', true);
-    xhr.onload = function() {
 
+    xhr.onload = function() {
         if(this.status == 200) {
             
             var user = JSON.parse(this.responseText);                       
-            var output = '';
+            var output = []; 
 
             for(i in user) {
-                output += '<ul>' + 
-                '<li>' + user[i].login + '</li>' + 
-                '<li>' + user[i].score + '</li>' + 
-                '</ul>';
+                output.push(user[i].score + "." + user[i].login);
             }
-            console.log(output);
-            document.querySelector('.common_record').innerHTML = output;
+            let best = 0,
+                index = 0;
+            for(let i = 0; i < output.length; i++) {
+              if(best < parseInt(output[i])) {
+                best = parseInt(output[i]);
+                index = i;
+              }
+            }
+
+
+            document.querySelector('#rec').innerHTML = parseInt(output[index]);
+            document.querySelector('#recName').innerHTML = output[index].split('.')[1];
+            if(document.querySelector('#yRec')) {
+              document.querySelector('#yRec').innerHTML = user[id-1].score;
+            }
         }
     }
 
     xhr.send();
+    
 }
 
 function getValue(e) {
-    e.preventDefault(); 
-    
-    let val = parseInt(bestSpd*1);
-    let id = document.querySelector('#hiddenId').innerHTML;
-    alert(id + " : " + val);
+  e.preventDefault(); 
 
-    var params = "val=" + val + "&id=" + id;
+  let val = parseInt(maxSpd*10);
+
+  var params = "val=" + val + "&id=" + id;
 
     var xhr = new XMLHttpRequest();
     xhr.open('POST', 'includes/ajax.php', true);
     xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 
-
     xhr.onload = function() {
-        
     }
-
     xhr.send(params);
 
     loadUsers();
 }
+
 
   //Events
   document.body.addEventListener("selectstart",(e)=> {
@@ -131,7 +140,7 @@ function getValue(e) {
   loose.addEventListener("click",()=> {
     loose.style.top = cont.offsetHeight+9 + "px";
     loose.style.transition = "top 1s cubic-bezier(.45,-0.67,.53,1.63)";
-    start.innerHTML = "🌚PLAY AGAIN!🌝";
+    start.innerHTML = "🌚AGAIN!🌝";
   
     setTimeout(()=> {
       start.style.top = cont.offsetHeight/80*25 + "px";
@@ -210,7 +219,7 @@ function getValue(e) {
         screen_speed.innerHTML = 'Speed: ' + parseInt(spd*10) + " t.k.p.s.";
         score_speed.innerHTML = 'Max speed: ' + parseInt(maxSpd*10);
         best_speed.innerHTML = 'Best speed today: ' + parseInt(bestSpd*10);
-        score_moon.innerHTML = "Score: " + (moonCount + 1);
+        score_moon.innerHTML = "Moons: " + (moonCount + 1);
         if (document.getElementById("gest_record")) {
         document.getElementById("gest_record").innerHTML = "Лучший результат сегодння: " + parseInt(bestSpd*10);
         }

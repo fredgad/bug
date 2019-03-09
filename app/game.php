@@ -17,9 +17,10 @@
 
   <div id="cont"></div>  
   <article id="start">🌚START!🌝</article>
-  <article id="loose">🌑LOOSE!🌕
-    <p id="score_time">Time: 0</p>
-    <p id="score_moon">Score: 0</p>
+  <article id="loose">
+    <strong>🌑LOOSE!🌕</strong>
+    <p id="score_time">Time: &#8734;</p>
+    <p id="score_moon">Moons: 0</p>
     <p id="score_speed">Max speed: 30</p>
     <p id="best_speed">Best speed today: 30</p>
   </article>
@@ -35,24 +36,31 @@
     <div id="bottom" class="bottom">▼</div>
     <article id="table">
       <?php if(isset($_SESSION['logged_user'])) : ?>
-        <p class="neek">Игрок: 
+        <article class="neek">Игрок: 
           <div id="hiddenId" style="display:none">
             <?php echo $_SESSION['logged_user']->id; ?>
           </div>
-          <strong style="font-size:18px"> 
+          <strong class=neekName> 
             <?php echo $_SESSION['logged_user']->login; ?>
           </strong>
+        </article>
+        <p class="own_record">Твой рекорд: 
+          <strong style="font-size:18px" id="yRec"> 
+            <!-- <?php //echo $_SESSION['logged_user']->score; ?> -->
+          </strong>
         </p>
-        <p class="own_record">Твой лучший результат: 
-          <strong style="font-size:18px"> 
-            <?php echo $_SESSION['logged_user']->score; ?>
+        <p class="common_record">Рекорд игры: 
+          <strong style="font-size:18px" id="rec"> 
+          </strong>
+        </p>
+        <p class="recorder">Рекордсмен: 
+          <strong style="font-size:18px" id="recName"> 
           </strong>
         </p>
       <?php else : ?> 
         <p class="neek">Гость</p>
         <p id="gest_record">Лучший результат сегодня: </p>
       <?php endif; ?>    
-        <p class="common_record">Абсолютный рекорд: </p>
     </article>
   </div>       
   

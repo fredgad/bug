@@ -22,7 +22,7 @@ body {
   width: 100vw;
   height: 10vh;
   background: rgba(0,0,0,.4);
-  z-index: 99;
+  z-index: 999;
   font-size: 2rem;
 
   .header-cont {
@@ -50,6 +50,7 @@ body {
   }
   .main-menu {
     display: grid;
+    z-index: 9999;
   }
   #menu-check { 
      display: none;  
@@ -343,7 +344,8 @@ body {
     top: calc(10vh + 30rem) !important;
   }
   .main-menu {
-    display: none !important;  
+    display: none !important; 
+    z-index: 9999 !important; 
   } 
   li {
     position: relative !important;

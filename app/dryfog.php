@@ -12,7 +12,6 @@
     
 <div id="wrap">   
     <div id="cont">
-        <div class="image1"></div>
     </div>
 </div>  
         
