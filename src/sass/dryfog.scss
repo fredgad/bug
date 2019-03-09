@@ -21,6 +21,7 @@ body {
     box-sizing:border-box;
     transform-style:preserve-3d;
     perspective:400px;
+    overflow: hidden;
 
 }
 #cont {
@@ -28,7 +29,6 @@ body {
     display: flex;
     height:40rem;
     width:70rem;
-    overflow: hidden;
     box-sizing: border-box;
 
     .image0, .image1, .image2 { 
@@ -59,16 +59,19 @@ body {
     //You can continue adding images here
 
     .image0:hover {
-        transform:translateZ(20px);
+        transform:translateZ(4rem);
         transition: .2s;
+        z-index: 9;
     }
     .image1:hover {
-        transform:translateZ(20px);
+        transform:translateZ(4rem);
         transition: .2s;
+        z-index: 9;
     }
     .image2:hover {
-        transform:translateZ(20px);
+        transform:translateZ(4rem);
         transition: .2s;
+        z-index: 9;
     }
 }
 

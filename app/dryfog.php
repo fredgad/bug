@@ -12,17 +12,26 @@
     
 <div id="wrap">   
     <div id="cont">
-        <div class="part0"></div>
+        <div class="image0"></div>
     </div>
 </div>  
         
-<input id="numW" type="number" value="1"> 
-<input id="numH" type="number" value="1">
 <button id="bttn">CUT</button>
 <button id="turn">TURN</button>
 <button id="tran">MOVE</button>
-<input type="range" id="rngWidth" min="1" max="100" step="1" value="1">
-<input type="range" id="rngHeight" min="1" max="100" step="1" value="1">
+
+<div id="buttons">
+    <button id="squaL">SQUARE LITTLE</button>
+    <button id="squaN">SQUARE NORMAL</button>
+    <button id="squaB">SQUARE BIG</button>
+    <button id="vertL">VERTICAL LITTLE</button>
+    <button id="vertN">VERTICAL NORMAL</button>
+    <button id="vertB">VERTICAL BIG</button>
+    <button id="goriL">GORISONTAL LITTLE</button>
+    <button id="goriN">GORISONTAL NORMAL</button>
+    <button id="goriB">GORISONTAL BIG</button>
+</div>
+
         
 </body>
 </html>
