@@ -21,14 +21,15 @@ body {
     box-shadow:0px 0px 3vh 1vh #333;
     height: 4rem;
     width:4rem;
-    border-radius: 1px;
+    border-radius: 2rem;
     display:flex;
     justify-content:center;
     align-items:center;
-    outline: 2px solid;
     
     p {
-      font-size:4.3rem;
+      font-size:4rem;
+      position: absolute;
+      top: -5rem;
     }
   }
 }
@@ -116,7 +117,7 @@ body {
       width: 15vw;
  
       .neekName {
-        color: red;
+        color: rgb(190, 6, 6);
         font-size:17px;
       }
     }
@@ -128,7 +129,7 @@ body {
     }
     .common_record {
       position: absolute;
-      color: yellow;
+      color: rgb(250, 221, 59);
       bottom: .3rem;
       font-size: .8rem;
     }
@@ -139,7 +140,7 @@ body {
       display: flex;
       left: 60vw;
       font-size: .8rem;
-      color: yellow;
+      color: rgb(250, 221, 59);
       top: 2.2vh;
 
       #recName {
@@ -172,6 +173,7 @@ body {
     bottom:.5vh;
     background: lightgreen;
     font-size: 3vw;
+    z-index: 99999999;
   }
 }
 #left {
@@ -207,7 +209,7 @@ body {
   position: absolute;
   top: 1vh;
   left: 1vh;
-  color: red;
+  color: rgb(190, 6, 6);
   font-size: 7vh;
   text-shadow:10px 3px 5px black;
 }                
@@ -227,11 +229,62 @@ body {
   justify-content: center;
   align-content: center;
 }
+#menu_table {
+  position: absolute;
+  display: none;
+  height: 80vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background: rgba(0,0,0,.3);
+  z-index: 9999;
+
+  div {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: rgb(250, 221, 59);
+    font-weight: bolder;
+    background: #222;
+    width: 25rem;
+  }
+  div:hover {
+    background: #eee;
+    color: rgb(190, 6, 6);
+  }
+  .resume {
+    position: abs;
+  }
+  #go_home {
+    a {
+      text-decoration: none;
+      color: rgb(190, 6, 6);
+    }
+  }
+}
+#rules {
+  position: absolute;
+  width: calc(100vw - 25rem);
+  height: 80vh;
+  right: 0;
+  top: 0;
+  background: #444;
+  z-index: 9999;
+  box-sizing: border-box;
+  padding: 4vw;
+  font-size: 1.7rem;
+  color: #fff;
+  display: none;
+}
 
 
-
-
-
+@media screen and (max-width: 580px) {
+  html {
+    font-size: 10px;
+  }
+}
 
 @media screen and (max-width: 420px) {
   html {

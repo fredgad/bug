@@ -29,7 +29,7 @@
   <div id="record">0</div> 
 
   <div id="handle">
-    <div class="menu_button">Menu</div>
+    <div class="menu_button" id="menu_button">Menu</div>
     <div id="left" class="left">◀</div>
     <div id="right" class="right">▶</div>
     <div id="top" class="top">▲</div>
@@ -65,11 +65,14 @@
   </div>       
   
   <div id="menu_table">
-    <div class="resume">Вернуться в игру</div>
-    <div class="negative_speed">Негативная скорость</div>
-    <div class="static_color">Статический фон</div>
-    <div class="color_button">Поменять цвет фона</div>
-    <div class="go_home">Выйти из игры</div>
+    <div id="resume">Вернуться в игру</div>
+    <div id="game_rules">Правила игры</div>
+    <div id="static_color">Статичный фон</div>
+    <div id="color_button">Поменять цвет фона</div>
+    <div id="go_home"><a href="index.php">Выйти из игры</a></div>
+  </div>
+
+  <div id="rules">Пожирай луны пока горячие! Чем горячее луна тем больше скорости ты наберёшь и наоборот. Обгони других игроков или достигни скорости света! (можно использовать wasd или стрелочки)
   </div>
 
 </body>

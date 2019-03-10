@@ -11,7 +11,6 @@
         $id = mysqli_real_escape_string($conn, $_POST['id']);
         
         $query = "UPDATE user SET score = GREATEST(score, '$val') WHERE id = $id";
-        //mysqli_query($conn, $query);
 
         if(mysqli_query($conn, $query)) {
             echo '<div style="color:green; z-index:9999999"></div>Score added...</div>';

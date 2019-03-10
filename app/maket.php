@@ -206,9 +206,6 @@
         </p>
       </div>
     </div>
-    <div class="contacts">
-      <h4>Contact info</h4>
-    </div>
   </div>
 
 </footer>

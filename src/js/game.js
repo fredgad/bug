@@ -5,13 +5,21 @@ onload = ()=> {
     cont = document.getElementById("cont"),
     start = document.getElementById("start"),
     loose = document.getElementById("loose"),
+    rules = document.getElementById("rules"),
+    resume = document.getElementById("resume"), 
     handle = document.getElementById("handle"),   
     ladybug = document.getElementById("ladybug"),
+    gameRules = document.getElementById("game_rules"),
+    menuTable = document.getElementById("menu_table"),
+    menuButton = document.getElementById("menu_button"),
+    staticColor = document.getElementById("static_color"),
     controls = document.getElementsByClassName("controls"), 
     id = document.querySelector('#hiddenId') ? 
     parseInt(document.querySelector('#hiddenId').innerHTML) : undefined, 
     
     l = false, r = false, t = false, b = true,
+    pause = false,
+    static = false,
     x = cont.offsetWidth/2,
     y = cont.offsetHeight/2,
     spd = 3,
@@ -25,14 +33,16 @@ onload = ()=> {
     allMoons2,
     pMoons,
     moonTime,
+    H,
     moonCount = -1,
     loH = ladybug.offsetHeight,
     loW = ladybug.offsetWidth,
     timer = Date.now(),
     moonFolder = ['<p class="pm" date="-15">🌑</p>', '<p class="pm" date="-5">🌘</p>', '<p class="pm" date="1">🌗</p>', '<p class="pm" date="3">🌖</p>', '<p class="pm" date="5">🌕</p>', '<p class="pm" date="3">🌔</p>', '<p class="pm" date="1">🌓</p>', '<p class="pm" date="-5">🌒</p>']; 
   
-  //Ajax
+  //Ajax start
   start.addEventListener("click", getValue);
+  loose.addEventListener("click", getValue);
 
 function loadUsers() {    
     var xhr = new XMLHttpRequest();
@@ -56,7 +66,6 @@ function loadUsers() {
               }
             }
 
-
             document.querySelector('#rec').innerHTML = parseInt(output[index]);
             document.querySelector('#recName').innerHTML = output[index].split('.')[1];
             if(document.querySelector('#yRec')) {
@@ -65,8 +74,7 @@ function loadUsers() {
         }
     }
 
-    xhr.send();
-    
+    xhr.send();  
 }
 
 function getValue(e) {
@@ -86,13 +94,50 @@ function getValue(e) {
 
     loadUsers();
 }
-
+  //Ajax end
 
   //Events
   document.body.addEventListener("selectstart",(e)=> {
     e.preventDefault();
   });  
   
+  menuButton.addEventListener("click", ()=> {
+    menuButton.style.display = "none";
+    setTimeout(()=> {
+      menuButton.style.display = "flex";
+    },1848);
+    stopGame();
+    rules.style.display = "none";
+  });
+
+  document.getElementById("color_button").addEventListener("click", ()=> {
+    colorChange();
+  });
+
+  gameRules.addEventListener("click", ()=> {
+    if(rules.style.display == "none") { 
+      rules.style.display = "flex";
+      gameRules.style.color = "rgb(190, 6, 6)";
+    } else {
+      rules.style.display = "none";
+      gameRules.style.color = "rgb(250, 221, 59)"; 
+    }
+  });
+
+  staticColor.addEventListener("click", ()=> {
+    static = static ? false : true ;
+    if(static) {
+      staticColor.style.color = "rgb(190, 6, 6)";
+    } else {
+      staticColor.style.color = "rgb(250, 221, 59)"; 
+    }
+  });
+
+  resume.addEventListener("click", ()=> {
+    stopGame();
+    rules.style.display = "none";
+  });
+
   handle.addEventListener("click",(e)=> {
     let direction = e.target.className;
     arrows(direction);
@@ -128,11 +173,14 @@ function getValue(e) {
     screen_speed.innerHTML = "Speed: 30 t.k.p.s.",
     score_speed.innerHTML = "Max speed: 30";
   
-    var  moonAppearance = setInterval(()=> {
-      NewMoon(Math.floor(Math.random() * cont.offsetHeight), Math.floor(Math.random() * cont.offsetWidth));
-      if (spd < 3) {
+    let  moonAppearance = setInterval(()=> {
+      NewMoon(Math.floor(Math.random() * cont.offsetHeight - 30), Math.floor(Math.random() * cont.offsetWidth - 30));
+      if (spd <= 0) {
         clearInterval(moonAppearance);
         cont.innerHTML='';
+      }
+      if(pause) {
+        clearInterval(moonAppearance);
       }
     },1847);
   });
@@ -148,6 +196,7 @@ function getValue(e) {
     },300);
   });
   
+  //Functions
   function endGame() {
     //cont.offsetHeight/80*15 + "px"
     loose.style.top = "0px";
@@ -162,6 +211,33 @@ function getValue(e) {
     cont.style.background = "rgb(" + red + "," + green + "," + blue + ")";
     start.style.background = "rgb(" + red + "," + green + "," + blue + ")";
     loose.style.background = "rgb(" + red + "," + green + "," + blue + ")";
+  }
+
+  function stopGame() {
+    pause = pause ? false : true; 
+
+    if(menuTable.style.display == "grid") {    
+      menuTable.style.display = "none";
+    } else {
+      menuTable.style.display = "grid";
+    }
+    if(pause) {
+
+      H = spd;
+      spd = 0.001;
+    } else {
+      spd = H;
+      let  moonAppearance = setInterval(()=> {
+        NewMoon(Math.floor(Math.random() * cont.offsetHeight - 30), Math.floor(Math.random() * cont.offsetWidth - 30));
+        if (spd <= 0) {
+          clearInterval(moonAppearance);
+          cont.innerHTML='';
+        }
+        if(pause) {
+          clearInterval(moonAppearance);
+        }
+      },1847);
+    }
   }
   
   // Beetle part
@@ -188,8 +264,6 @@ function getValue(e) {
       r = false;
       t = false;
       b = true;
-    } else if(direction == "menu_button") {
-      colorChange();
     }
   };
   
@@ -197,6 +271,11 @@ function getValue(e) {
   function check() {
     allMoons = document.querySelectorAll("#cont div");
   
+    if(x < 0 && y < 0) {
+      x = cont.offsetWidth;
+      y = cont.offsetHeight;
+    }
+
     if (left && x + ladybug.offsetWidth < 0) {
       x = cont.offsetWidth 
     } else if (right && x - ladybug.offsetWidth > cont.offsetWidth) {
@@ -223,8 +302,8 @@ function getValue(e) {
         if (document.getElementById("gest_record")) {
         document.getElementById("gest_record").innerHTML = "Лучший результат сегодння: " + parseInt(bestSpd*10);
         }
-        if (spd < 3) {
-          spd = 0;
+        if (spd <= 2) {
+          spd = 0; 
   
           endGame();
         }
@@ -233,7 +312,9 @@ function getValue(e) {
   
         record.innerHTML++;
   
-        colorChange();
+        if(!static) {
+          colorChange();
+        }
         return bestSpd;
       }
     }

@@ -27,7 +27,7 @@ body {
           box-shadow: 0px 0px 3vh 1vh #333;
   height: 4rem;
   width: 4rem;
-  border-radius: 1px;
+  border-radius: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -37,11 +37,12 @@ body {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  outline: 2px solid;
 }
 
 #cont div p {
-  font-size: 4.3rem;
+  font-size: 4rem;
+  position: absolute;
+  top: -5rem;
 }
 
 #start, #loose {
@@ -161,7 +162,7 @@ body {
 }
 
 #handle #table .neek .neekName {
-  color: red;
+  color: #be0606;
   font-size: 17px;
 }
 
@@ -174,7 +175,7 @@ body {
 
 #handle #table .common_record {
   position: absolute;
-  color: yellow;
+  color: #fadd3b;
   bottom: .3rem;
   font-size: .8rem;
 }
@@ -188,7 +189,7 @@ body {
   display: flex;
   left: 60vw;
   font-size: .8rem;
-  color: yellow;
+  color: #fadd3b;
   top: 2.2vh;
 }
 
@@ -231,6 +232,7 @@ body {
   bottom: .5vh;
   background: lightgreen;
   font-size: 3vw;
+  z-index: 99999999;
 }
 
 #left {
@@ -280,7 +282,7 @@ body {
   position: absolute;
   top: 1vh;
   left: 1vh;
-  color: red;
+  color: #be0606;
   font-size: 7vh;
   text-shadow: 10px 3px 5px black;
 }
@@ -306,6 +308,71 @@ body {
           justify-content: center;
   -ms-flex-line-pack: center;
       align-content: center;
+}
+
+#menu_table {
+  position: absolute;
+  display: none;
+  height: 80vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+}
+
+#menu_table div {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 2rem;
+  color: #fadd3b;
+  font-weight: bolder;
+  background: #222;
+  width: 25rem;
+}
+
+#menu_table div:hover {
+  background: #eee;
+  color: #be0606;
+}
+
+#menu_table .resume {
+  position: abs;
+}
+
+#menu_table #go_home a {
+  text-decoration: none;
+  color: #be0606;
+}
+
+#rules {
+  position: absolute;
+  width: calc(100vw - 25rem);
+  height: 80vh;
+  right: 0;
+  top: 0;
+  background: #444;
+  z-index: 9999;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 4vw;
+  font-size: 1.7rem;
+  color: #fff;
+  display: none;
+}
+
+@media screen and (max-width: 580px) {
+  html {
+    font-size: 10px;
+  }
 }
 
 @media screen and (max-width: 420px) {
