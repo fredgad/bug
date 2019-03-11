@@ -55,7 +55,7 @@
       <label for="menu-check" class="toggle-button" data-open="MENU" data-close="CLOSE"></label>
       <ul class="main-menu">
         <li><a href="index.php">HOME</a></li>
-        <li><a href="game.php">GAME</a></li>
+        <li><a href="game.php">PLAY</a></li> 
         <li><a href="portfolio.php">PORTFOLIO</a></li>
         <li>
           <?php if(isset($_SESSION['logged_user'])) : ?>

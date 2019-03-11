@@ -13,7 +13,7 @@
       <label for="menu-check" class="toggle-button" data-open="MENU" data-close="CLOSE"></label>
       <ul class="main-menu">
         <li><a href="index.php">HOME</a></li>
-        <li><a href="game.php">GAME</a></li>
+        <li><a href="game.php">PLAY</a></li>
         <li><a href="portfolio.php">PORTFOLIO</a></li>
         <?php if(isset($_SESSION['logged_user'])) : ?>
           <li id="exit__a">
@@ -40,7 +40,7 @@
       <a class="validation" href="validation.php"><img src="images/validation.jpg" alt="" title="Перейти на страницу для просмотра"></a>
     </div>
     <div class="stuf">
-      <p><a href="dryfog.php">Дизайн и вёрстка.</a></p>
+      <p><a href="dryfog.php">Слайдер.</a></p>
       <a class="landing" href="dryfog.php"><img  src="images/dryfog.jpg" alt="" title="Перейти на страницу для просмотра"></a>
     </div>
     <div class="stuf">
